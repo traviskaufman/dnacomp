@@ -7,7 +7,7 @@ const COMPLEMENTS = {
 };
 
 export default class DNASeq {
-  static sanitizeFromRaw(str) {
+  static sanitizeFromRaw(str: string) {
     const sanitized = str
       .split("")
       .map((s) => s.toUpperCase())
@@ -16,10 +16,9 @@ export default class DNASeq {
     return new DNASeq(sanitized);
   }
 
-  /** @type {string} */
-  #data;
+  #data: string;
 
-  constructor(str) {
+  constructor(str: string) {
     this.#data = str;
   }
 

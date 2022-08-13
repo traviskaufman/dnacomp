@@ -8,7 +8,7 @@ import Box from "@suid/material/Box";
 import Seq from "./common/Seq";
 
 function App() {
-  const [rawSeq, setRawSeq] = createSignal('');
+  const [rawSeq, setRawSeq] = createSignal("");
   const seq = () => DNASeq.sanitizeFromRaw(rawSeq());
   const complement = () => seq().complement();
   const reverseComplement = () => seq().reverseComplement();
@@ -23,10 +23,16 @@ function App() {
             label="Base"
             variant="outlined"
             value={seq().toString()}
-            onChange={ev => setRawSeq(ev.target.value)}
+            onChange={(ev) => setRawSeq(ev.target.value)}
           />
-          <p>Complement: <Seq seq={complement()} /></p>
-          <p>Reverse Complement: <Seq seq={reverseComplement()} /></p>
+          <Stack direction="row" spacing={4}>
+            <span>Complement:</span>
+            <Seq seq={complement()} />
+          </Stack>
+          <Stack direction="row" spacing={4}>
+            <span>Reverse Complement:</span>
+            <Seq seq={reverseComplement()} />
+          </Stack>
         </Stack>
       </Container>
     </Box>

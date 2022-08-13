@@ -27,6 +27,10 @@ export default class DNASeq {
     return this.#data;
   }
 
+  toArray() {
+    return this.toString().split("");
+  }
+
   complement() {
     return new DNASeq(this.#complementStr());
   }
@@ -36,8 +40,7 @@ export default class DNASeq {
   }
 
   #complementStr() {
-    return this.#data
-      .split("")
+    return this.toArray()
       .map((base) => COMPLEMENTS[base])
       .join("");
   }

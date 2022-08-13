@@ -5,6 +5,7 @@ import Stack from "@suid/material/Stack";
 import { createSignal } from "solid-js";
 import DNASeq from "./common/DNASeq";
 import Box from "@suid/material/Box";
+import Seq from "./common/Seq";
 
 function App() {
   const [rawSeq, setRawSeq] = createSignal('');
@@ -24,8 +25,8 @@ function App() {
             value={seq().toString()}
             onChange={ev => setRawSeq(ev.target.value)}
           />
-          <p>Complement: {complement().toString()}</p>
-          <p>Reverse Complement: {reverseComplement().toString()}</p>
+          <p>Complement: <Seq seq={complement()} /></p>
+          <p>Reverse Complement: <Seq seq={reverseComplement()} /></p>
         </Stack>
       </Container>
     </Box>
